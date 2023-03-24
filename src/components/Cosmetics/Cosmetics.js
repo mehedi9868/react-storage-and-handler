@@ -1,22 +1,23 @@
 import React from 'react';
-import add, { division, multiply, subtraction, vagses } from '../../utilities/calculate';
+import Cosmetic from '../Cosmetic/Cosmetic';
 import './Cosmetics.css';
 const Cosmetics = () => {
-    const firstNumber = 10;
-    const secondNumber = 20;
-    const total = add(firstNumber, secondNumber);
-    const result = multiply(firstNumber, secondNumber);
-    const subResult = subtraction(firstNumber, secondNumber);
-    const divResult = division(firstNumber, secondNumber);
-    const modulusResult = vagses(firstNumber, secondNumber); // must use alias.
+    const cosmetics = [
+        { id: 1, name: 'Alta', price: 100 },
+        { id: 2, name: 'Alta', price: 200 },
+        { id: 3, name: 'Alta', price: 300 },
+        { id: 4, name: 'Alta', price: 400 },
+        { id: 5, name: 'Alta', price: 500 }
+    ];
     return (
         <div>
             <h2>Welcome to my cosmetics store !!!</h2>
-            <p>Total:{total}</p>
-            <p>Sub Result:{subResult}</p>
-            <p>Div Result:{divResult}</p>
-            <p>Multiply Result:{result}</p>
-            <p>Remaining:{modulusResult}</p>
+            {
+                cosmetics.map(cosmetic => <Cosmetic
+                    key={cosmetic.id}
+                    cosmetic={cosmetic}
+                ></Cosmetic>)
+            }
         </div>
     );
 };
