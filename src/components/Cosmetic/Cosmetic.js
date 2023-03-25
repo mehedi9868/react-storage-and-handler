@@ -1,10 +1,11 @@
 import React from 'react';
+import { addToDb } from '../../utilities/fckedb';
 import './Cosmetic.css';
 const Cosmetic = (props) => {
     const { cosmetic } = props;
     const { name, price, id } = cosmetic;
     const handleCart = (id) => {
-        console.log('product added:', id);
+        addToDb(id);
     } // use wrapper '()=>' to onClick to pass parameters. 
     return (
         <div className='product'>
